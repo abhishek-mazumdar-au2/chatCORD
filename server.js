@@ -10,7 +10,7 @@ const server = http.createServer(app);
 const io = socket(server) 
 app.use(express.static(path.join(__dirname, 'public')))
 const botName = 'ChatCord';
-const PORT = 3000;
+const PORT = 3000 || process.env.PORT;
 
 io.on('connection', socket => {
     socket.on('joinRoom', ({ username, room}) => {
